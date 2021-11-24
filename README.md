@@ -35,7 +35,7 @@ Firstly, I checked the duplicated rows and saw there were none. After that, I dr
 
 I used some visualization methods to have a better understanding of features' relation, and also their effects on hepatitis.
 <p align="center"> 
-   <img alt="Ekran Resmi 2021-06-28 01 15 28" src="ttps://user-images.githubusercontent.com/87663976/143285793-eaedbc83-415a-4817-bfff-b7f16e7ac1f0.png">
+   <img alt="Ekran Resmi 2021-06-28 01 15 28" src="https://user-images.githubusercontent.com/87663976/143287002-04dcdfb6-c57a-4c29-b0fa-5fbf772acf5f.png">
 </p>
 
 <p align="center"> 
@@ -45,34 +45,33 @@ I used some visualization methods to have a better understanding of features' re
 # Correlation 
 
 <p align="center"> 
-   <img alt="Ekran Resmi 2021-06-28 01 15 28" src="https://user-images.githubusercontent.com/87663976/143219223-4451b45d-d5ab-4aaa-86a4-37caf145171a.png">
-</p>
+   <img alt="Ekran Resmi 2021-06-28 01 15 28" src="https://user-images.githubusercontent.com/87663976/143287156-61e789d5-4705-4b72-9c4d-fd4fd99f2995.png">
 
-As it can be seen on the correlation matrix some features had a high correlation between them. When independent features are highly correlated i.e. have the same nature, then they introduce the element of variance in the model which is called Multi-Collinearity. Multi-Collinearity is not good for our models so I dropped some of the columns to avoid that.
-
-# Label Encoding
-We had only two categorical columns. When it comes to the "status" column, the ordinal column is encoded with the label encoding method. The "country" column is nominal and it is encoded with the one-hot encoding method. And I encoded "country" column with one-hot encoding method I dropped one column to avoid Multi-Collinearity.
+   # Label Encoding
+We had only two categorical columns(category and sex). When it comes to the "category" column, the ordinal column is encoded with the label encoding method. The "sex" column is nominal and it is encoded with the one-hot encoding method. 
 
 # Feature Scaling
-Robust Scaler is one of the best scaler methods to use when a dataset contains outliers. As seen previously, our dataset had outliers and we did not remove or replace them. Outliers can skew a probability distribution and make data scaling using standardization difficult as the calculated mean and standard deviation will be skewed by the presence of the outliers. Therefore, we choose RobustScaler for our Feature scaling.
+I used the Standard Scaler for scaling the column sex with leaving out target column (category).
 
 # Models 
-We trained eight different models (Lasso, Ridge, Random Forest, KNN, Decision Tree, SVR, Gradient Boosting Regressor and Ada Boosting Regregssor) to see which one is the giving best results. Then I checked results after cross validation too and plotted the results.
+We trained eight different models (KNN, Logistic, Random Forest,Decision Tree, Extra Trees, and Ada Boosting) to see which one is the giving best results. And with Grid Search and Cross Validation we pointed out the best models and parameters.
+   
 
-# R2 Scores
 
 
-   | Model                | CV R2 Mean   |      Std     |
+   | Model                | CV  Mean     |      Std     |
    | :------------------: | :----------: | :-----------:|
-   |  Lasso               | 0.9481       | 0.0143       |
-   |  Ridge               | 0.9481       | 0.0143       |
-   |  Random Forest       | 0.9611       | 0.0078       |
-   |  KNN                 | 0.839148	  | 0.0123       |
-   |  Decision Tree       | 0.8926       | 0.0149       |
-   |  SVR                 | 0.8328       | 0.0224       |
-   |  Gradient Boosting   | 0.9497       | 0.0074       |
-   |  Ada Boosting        | 0.8921       | 0.0126       |
+   |  KNN                 | 0.9878       | 0.0049       |
+   |  Logistic            | 0.9979       | 0.0040       |
+   |  Decision Tree       | 1.0          | 0.0          |
+   |  Extra Trees         | 1.0	        | 0.0          |
+   |  AdaBoost            | 1.0          | 0.0          |
+
+   
 
 <p align="center"> 
-   <img alt="Ekran Resmi 2021-06-28 01 15 28" src="https://user-images.githubusercontent.com/87663976/143229476-dfa19181-73d5-4a0b-8919-763ec6d82cc6.png">
+   <img alt="Ekran Resmi 2021-06-28 01 15 28" src="https://user-images.githubusercontent.com/87663976/143288668-103f9916-ac04-463a-84de-88086d2b1b1c.png">
 </p>
+
+
+
